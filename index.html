@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://cdn.livefyre.com/libs/sdk/v2.7.0/streamhub-sdk.min.js"></script>
+		<script src="http://cdn.livefyre.com/libs/apps/cheung31/streamhub-map/v1.2.0-build.46/streamhub-map.min.js"></script>
+		<link rel="stylesheet" href="main.css"/>
+	</head>
+	<body>
+
+		<div id="myMap"></div>
+
+		<script>	
+			var Collection = Livefyre.require("streamhub-sdk/collection");
+			var ContentMapView = Livefyre.require('streamhub-map');
+
+
+			//Creates the template for CustomizableMap objects with either given input or default values.
+			var CustomizableMap = function(opts) {
+				opts = opts || {};
+				this.network = opts.network || "strategy-prod.fyre.co";
+				this.siteId = opts.siteId || "340628";
+				this.articleId = opts.articleId || "custom-1402435110097";
+				this.centerLat = opts.centerLat || 37.774929499038386;
+				this.centerLong = opts.centerLong || -122.41941549873445;
+				this.zoom = opts.zoom || 4;
+			};
+
+			//Initiates a CustomizableMap object - if url parameters are present changes are made, otherwise given/default values are used.
+			CustomizableMap.prototype.init = function(){
+				this._parseQueryArgs();
+			}
+
+			//Checks the url for customized parameters and changes corresponding values if they are present
+			CustomizableMap.prototype._parseQueryArgs = function () {
+       			 // Parse out query params
+        		var url = location.search;
+        		var params = url.split("&");
+
+        		for (var i = 0, len = params.length; i < len; i++) {
+        		    var kv = params[i].split("=");
+        		    kv[0] = kv[0].replace("?", "");
+
+            		if (kv[0] == "n") {
+            			//Sets the Collection's network
+            		    this.network = kv[1];
+            		}
+
+            		if (kv[0] == "s") {
+            			//Sets Collection's Site ID
+            		    this.siteId = kv[1];
+            		}
+
+            		if(kv[0] == "a"){
+            			//Sets Collection's Article ID
+            		    this.articleId= kv[1];
+            		}
+
+            		if (kv[0] == "e") {
+            			//Sets Environment
+            		    this.environment = kv[1];
+            		}
+            		if(kv[0] == "c"){
+            			//Sets the point where the map's center starts out in degrees latitude and longitude
+            			var kv2 = kv[1].split(",");
+            			this.centerLat= kv2[0];
+            			this.centerLong= kv2[1];
+            		}
+            		if(kv[0] == "z"){
+            			//Sets default zoom level
+            			this.zoom = kv[1];
+            		}
+        		}
+    		}
+
+			var customizableMap = new CustomizableMap();
+
+			customizableMap.init();
+
+			//Sets the details of the collection that will be displayed on the map.
+			var collection = new Collection({
+	    		"network": customizableMap.network,
+	    		"siteId": customizableMap.siteId,
+	    		"articleId": customizableMap.articleId,
+	    		"environment": customizableMap.environment
+			});
+
+			//Sets the display parameters for the map itself.
+			var view = new ContentMapView({
+				el: document.getElementById("myMap"),
+				leafletMapOptions: {
+            		center: [customizableMap.centerLat, customizableMap.centerLong],
+            		zoom: customizableMap.zoom
+       			}
+       			// mapboxTileOptions: {
+          //   		mapId: 'myuser.map-0l53fhk2',
+          //   		format: 'jpg70'
+        		// }
+			});
+
+			collection.pipe(view);
+
+		</script>
+	</body>
+</html>
