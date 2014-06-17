@@ -71,7 +71,9 @@ Note: To reload the page in a way that will keep changes select the url and pres
 
 ####Instructions for finding variables for the network, Site ID, and Article ID parameters.
 
-**Step numbers correspond to numbers on the screenshot provided - step numbers correspond to labelled parts of the image titled "instructions" included above**
+**Step numbers correspond to numbers on the screenshot provided - step numbers correspond to labelled parts of the image titled "instructions"**
+
+![Instructions](https://github.com/NicholasEM/CustomizableMap/blob/master/Instructions.png)
 
 1) Once on the Livefyre admin console, click on the "Collections" tab.
 
