@@ -5,3 +5,10 @@
 	height: 100%;
 	width: 100%;
 }
+
+
+
+.hub-modals .hub-modal .hub-modal-content,
+.hub-modals .hub-modal .hub-modal-content>* {
+	overflow: auto;
+}
