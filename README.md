@@ -17,13 +17,13 @@ This app expands on the Streamhub Map application by allowing the user to easily
 
 These three variables are used to select which collection you want to display on the map
 
-(Information for finding variables for the first three parameters can be found on the livefyre admin console - instructions below)
+(The variables listed above can be found on the Livefyre admin console - precise instructions for finding these instructions can be found below)
 
 **e=anotherexample.com:** Sets the environment for the collection to be displayed (defaults to livefyre.com. - this is not shown in the example urls below since it does not need to be altered or customized to work under normal circumstances.)
 
 **c=a,b:** Sets the map's starting center at latitude 'a' and longitude 'b.'   Decimal values are allowed here.
 
- Positive latitude values correspond to North and negative values correspond to South, positive longitude correspond to East, negative to West (for example entering 42, 122 would make the map's initial center 42 degrees North, 122 degrees East while -42, -122 sets the initial location to 42 degrees South, 122 Degrees West.)
+ Positive latitude values correspond to North and negative values correspond to South, positive longitude correspond to East, negative to West (for example entering c=42,122 would set the map's initial center to 42 degrees North, 122 degrees East while c=-42,-122 sets the initial location to 42 degrees South, 122 Degrees West.)
 
  (Note: The comma between latitude and longitude values IS REQUIRED FOR THIS TO WORK.  Also there should be no spaces between the values - inserting spaces can and will cause errors.) 
 
@@ -49,21 +49,21 @@ Reloading the page after changing the base url to
 
 Will change the starting zoom level from 4 to 3
 
-(Note: To reload the page in a way that will keep changes select the url and press the "enter" key.  Do not refresh the page - this will set it back to the previous set of parameters.)
+Note: To reload the page in a way that will keep changes highlight the url and press the "enter" key.  Do not refresh the page - this will set it back to the previous set of parameters.
 
 
 ---
 
 **Format for changing multiple variables** (Note: seeing as collections have multiple variables that need to be defined to display correctly this is the most common case.)
 
-Changing multiple parameters is very similar to changing one - additional terms are added on to the end of the url and the page needs to be reloaded for the changes to make effect.  Each additional parameter to be customized needs to be separated by a SINGLE ampersand (&) and no spaces.  For example to change the zoom level to 3 and the starting coordinates of the map to 37.8 degrees North 122 degrees West (roughly the coordinates of San Francisco) one would change the base url to
+Changing multiple parameters is very similar to changing one - additional terms are added on to the end of the url and the page needs to be reloaded for the changes to make effect.  Each additional parameter to be customized needs to be separated from the previous one by a SINGLE ampersand (&) WITHOUT SPACES.  For example to change the zoom level to 3 and the starting coordinates of the map to 37.8 degrees North 122 degrees West (roughly the coordinates of San Francisco) one would change the base url to
 
     http://example.com/url/stuff/?z=3&c=37.8,-122.
 
 
 Note: There should be NO spaces anywhere in the section of the url where parameters are being defined - they may disrupt the normal functioning of the parameters.
 
-Note: To reload the page in a way that will keep changes select the url and press the "enter" key.  Do not refresh the page - this will set it back to the previous set of parameters.
+Note: To reload the page in a way that will keep changes highlight the url and press the "enter" key.  Do not refresh the page - this will set it back to the previous set of parameters.
 
 
 ---
@@ -73,6 +73,7 @@ Note: To reload the page in a way that will keep changes select the url and pres
 **Step numbers correspond to numbers on the screenshot provided - step numbers correspond to labelled parts of the image titled "instructions"**
 
 ![Instructions](https://raw.githubusercontent.com/NicholasEM/CustomizableMap/master/Instructions.png)
+(Click the image to enlarge it)
 
 1) Once on the Livefyre admin console, click on the "Collections" tab.
 
@@ -81,17 +82,18 @@ Note: To reload the page in a way that will keep changes select the url and pres
 3) Copy the information variables for each parameter you are using - in this example the variables are underlined.
 
 IMPORTANT NOTES: 
-You must use ALL THREE of these from the collection for the map to display anything - for example mixing up articleID and siteID WILL cause an error.  Additionally, leaving out one or more of these three parameters will in the best-case scenario display the wrong collection.  However it is more likely that it will just cause an error.
 
-Only copy the parts of the line that are TO THE RIGHT of the '=' sign.
+You must use ALL THREE of these from the collection for the map to display anything - for example mixing up articleID and siteID WILL cause an error.  Additionally, leaving out one or more of these three parameters will at the very best display the wrong collection.  However it is more likely that it will just cause an error and display nothing at all.
+
+Only copy the parts of the line that are to the RIGHT of the '=' sign.
 
 DO NOT copy the quotation marks for any of the information.
 
-For example in the example given for siteID you would copy 347185 and paste that so that part of the url looks like s=347185
+For example in the example image for siteID you would copy 347185 and paste that so that part of the url looks like s=347185
 
 You would NOT copy '347185' or siteId: '347185'
 
-At the current moment ALL siteID's are six digits, but that number may change in the future.
+At the current moment ALL siteID's are six digits, but that may change in the future.
 
 ALL THREE of these parameters must be copied from the SAME collection's information - not doing so will almost certainly cause an error.
 
@@ -106,8 +108,7 @@ If far fewer pieces of data are showing up than expected, try zooming in.  At hi
 
 If the map is showing up but there are no pieces of data showing, check the details for the collection you entered and make sure all syntax is completely correct - a single space or number out of place could be causing the problem!
 
-
-At this point a good way to find the latitude and longitude of a place you want to center the map on is to google "latitude and longitude of   [place]."  
+At this point a good way to find the latitude and longitude of a place you want to center the map on is to google "latitude and longitude of    [place]."  
 
 If the map isn't centering where you want it to center remember that North v. South and East v. West are determined by a positive or negative degree value - North/South, East/West, +/- respectively.  Also note that while you DO need a '-' sign in front of the number in order to make the value negative (and correspond to degrees South or West) you DO NOT need a '+' sign in front of the positive numbers.
 
