@@ -19,7 +19,7 @@ These three variables are used to select which collection you want to display on
 
 (Information for finding variables for the first three parameters can be found on the livefyre admin console - instructions below)
 
-**e=anotherexample.com:** Sets the environment for the collection to be displayed (defaults to livefyre.com. - this is not shown in the example url above since it does not need to be altered or customized to work under normal circumstances.)
+**e=anotherexample.com:** Sets the environment for the collection to be displayed (defaults to livefyre.com. - this is not shown in the example urls below since it does not need to be altered or customized to work under normal circumstances.)
 
 **c=a,b:** Sets the map's starting center at latitude 'a' and longitude 'b.'   Decimal values are allowed here.
 
