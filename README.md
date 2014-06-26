@@ -91,7 +91,7 @@ For example in the example given for siteID you would copy 347185 and paste that
 
 You would NOT copy '347185' or siteId: '347185'
 
-At the current moment ALL siteID's are six digits, but that may grow in the future.
+At the current moment ALL siteID's are six digits, but that number may change in the future.
 
 ALL THREE of these parameters must be copied from the SAME collection's information - not doing so will almost certainly cause an error.
 
