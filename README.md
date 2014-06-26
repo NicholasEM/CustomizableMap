@@ -3,6 +3,8 @@
 
 -----
 This app expands on the Streamhub Map application by allowing the user to easily customize the collection displayed by the Streamhub map and certain displays options through the url.
+
+
 ---
 
 ####Parameter Definitions
